@@ -1,4 +1,4 @@
-# Heart-Disease-Prediction
+# Pet-Adoption-Prediction
 
 ## Introduction
 
