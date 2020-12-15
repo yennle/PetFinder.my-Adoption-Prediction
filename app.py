@@ -1,3 +1,4 @@
+from joblib import load
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -98,6 +99,8 @@ else:
             state_options.keys()), format_func=lambda x: state_options[x])
         # Photo Amount
         photo_amt = st.sidebar.slider('Photo Amount', 0, 30, 2)
+        # Video Amount
+        video_amt = st.sidebar.slider('Video Amount', 0, 30, 2)
 
         # Generate dict data
         data = {'Type': pet_type,
@@ -114,7 +117,9 @@ else:
                 'Quantity': quantity,
                 'Fee': fee,
                 'State': state,
-                'PhotoAmt': photo_amt
+                'PhotoAmt': photo_amt,
+                'VideoAmt': video_amt
+
                 }
         features = pd.DataFrame(data, index=[0])
         return features
@@ -126,30 +131,41 @@ else:
 
 # Combines user input features with entire pet dataset
 # This will be useful for the encoding phase
-pet_raw = pd.read_csv('./data/pet_cleaned.csv')
-pet = pet_raw.drop(columns=['AdoptionSpeed'])
-df = pd.concat([input_df, pet], axis=0)
+# pet_raw = pd.read_csv('./data/pet_cleaned.csv')
+# pet = pet_raw.drop(columns=['AdoptionSpeed'])
+# df = pd.concat([input_df, pet], axis=0)
 
-# Encoding of ordinal features
-encode = ['Type', 'Breed1', 'Gender', 'Color1', 'MaturitySize',
-          'FurLength', 'Vaccinated', 'Dewormed', 'Sterilized', 'Health', 'State']
-for col in encode:
-    dummy = pd.get_dummies(df[col], prefix=col)
-    df = pd.concat([df, dummy], axis=1)
-    del df[col]
+# # Encoding of ordinal features
+# encode = ['Type', 'Breed1', 'Gender', 'Color1', 'MaturitySize',
+#           'FurLength', 'Vaccinated', 'Dewormed', 'Sterilized', 'Health', 'State']
+# for col in encode:
+#     dummy = pd.get_dummies(df[col], prefix=col)
+#     df = pd.concat([df, dummy], axis=1)
+#     del df[col]
 
 
-if uploaded_file is not None:
-    df = df[:len(input_df)]
-else:
-    df = df[:1]  # Selects only the first row (the user input data)
+# if uploaded_file is not None:
+#     df = df[:len(input_df)]
+# else:
+#     df = df[:1]  # Selects only the first row (the user input data)
 
 # Reads in saved classification model
-load_clf = pickle.load(open('./model-building/pet_clf.pkl', 'rb'))
-
+# load_clf = pickle.load(open('./model-building/pet_model.joblib', 'rb'))
+model = load('./model-building/pet_model.joblib')
 # Apply model to make predictions
-prediction = load_clf.predict(df)
-prediction_proba = load_clf.predict_proba(df)
+
+
+def predict(model, input_df):
+    # predictions_df = predict_model(estimator=model, data=input_df)
+    predictions = model.predict(input_df)
+    # predictions = predictions_df['Label'][0]
+    # get rid of unfeasible predictions
+    return predictions
+
+
+print(input_df.columns)
+# prediction = load_clf.predict(input_df)
+# print(predict(model, input_df))
 # print('test prediction')
 # for i in prediction:
 #     print(i)

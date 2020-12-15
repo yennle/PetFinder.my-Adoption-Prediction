@@ -55,6 +55,8 @@ model_randomforest.fit(Xtrain, ytrain)
 
 # make predictions on test data
 y_model_randomforest = model_randomforest.predict(Xtest)
+print(Xtest.columns)
+print(y_model_randomforest)
 
 # accuracy score
 train_accuracy_rf = model_randomforest.score(Xtrain, ytrain)
