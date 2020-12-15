@@ -13,6 +13,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import accuracy_score
 import pandas as pd
 train = pd.read_csv('../train.csv')
+train = train.sample(frac=0.6)
 drop = ['Name', 'Breed2', 'Color2', 'Color3',
         'RescuerID', 'PetID', 'Description']
 train = train.drop(drop, axis=1)
