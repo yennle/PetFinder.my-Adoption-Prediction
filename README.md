@@ -5,7 +5,7 @@
 For our final project, we worked on [PetFinder.my Adoption Speed competition] (https://www.kaggle.com/c/petfinder-adoption-prediction 'Petfinder.my Adoption Prediction Kaggle') from **Kaggle**. The objective is to predict the estimated time for new pets to be adopted based on the pet's listing on PetFinder.my. Although this project is challenging, it is meaningful. If the pet adoption speed is predicted well, more efficient resource allocation can be implemented to improve overall adoption performance and, subsequently, reduce sheltering and fostering costs.
 
 We also developed a web application for our prediction tool using Streamlit and then deployed it on Heroku:
-[Pet Adoption Prediction] (https://pet-adoption-prediction.herokuapp.com/ 'Petfinder.my Adoption Prediction')
+[Pet Adoption Prediction] (https://pet-adoption-prediction.herokuapp.com 'Petfinder.my Adoption Prediction')
 
 ## Selection of Data
 
