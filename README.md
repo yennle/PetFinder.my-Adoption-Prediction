@@ -5,7 +5,7 @@
 For our final project, we worked on [PetFinder.my Adoption Speed competition](https://www.kaggle.com/c/petfinder-adoption-prediction 'Petfinder.my Adoption Prediction Kaggle') from **Kaggle**. The objective is to predict the estimated time for new pets to be adopted based on the pet's listing on PetFinder.my. Although this project is challenging, it is meaningful. If the pet adoption speed is predicted well, more efficient resource allocation can be implemented to improve overall adoption performance and, subsequently, reduce sheltering and fostering costs.
 
 We also developed a web application for our prediction tool using Streamlit and then deployed it on Heroku:
-[**Pet Adoption Prediction Application**](https://pet-adoption-prediction.herokuapp.com)
+[**Pet Adoption Prediction Application**](https://pet-adoption-speed-prediction.herokuapp.com/)
 
 ## Selection of Data
 
@@ -59,4 +59,4 @@ Going through some top-rated notebooks for competition on Kaggle, we noticed tha
 This Pet Prediction project deploys a supervised classification model to predict adoption speed based on 16 features: Type, Age, Breed, Gender, Color, Maturity Size, Fur Length, Vaccinated, Dewormed, Sterilized, Health, Quantity, Fee, State,Video Amount, Photo Amount
 
 After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 70%.
-The web app is designed using Streamlit, and can do online and batch processing, and is deployed using Heroku and Streamlit. The Heroku app is live at https://pet-adoption-prediction.herokuapp.com/.
+The web app is designed using Streamlit, and can do online and batch processing, and is deployed using Heroku and Streamlit. The Heroku app is live at https://pet-adoption-speed-prediction.herokuapp.com/.
