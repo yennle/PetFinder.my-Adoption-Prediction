@@ -226,7 +226,7 @@ if uploaded_file is not None:
     st.write(df)
 else:
     st.write("Input data is defined from the user's entry ")
-    local_css("style.css")
+    # local_css("style.css")
     # First row: Pet type, Breed, Gender
     c1, c2, c4 = st.beta_columns(3)
     format_data(pet_options[input_df.iloc[0]["Type"]], 'Pet type', c1)
