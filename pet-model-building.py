@@ -1,12 +1,13 @@
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
-pet = pd.read_csv('../data/pet_cleaned.csv')
+pet = pd.read_csv('./data/pet_cleaned.csv')
 
 
 # Ordinal feature encoding
 # https://www.kaggle.com/c/petfinder-adoption-prediction
-df = pet.copy()
+#df = pet.copy()
+df = pet.sample(frac=0.5)
 target = 'AdoptionSpeed'
 encode = ['Type', 'Breed1', 'Gender', 'Color1', 'MaturitySize',
           'FurLength', 'Vaccinated', 'Dewormed', 'Sterilized', 'Health', 'State']
@@ -15,8 +16,8 @@ for col in encode:
     df = pd.concat([df, dummy], axis=1)
     del df[col]
 
-for col in df.columns:
-    print(col)
+# for col in df.columns:
+#     print(col)
 # target_mapper = {'Pet was adopted on the same day as it was listed.':0,
 #                 'Pet was adopted between 1 and 7 days (1st week) after being listed.':1,
 #                 'Pet was adopted between 8 and 30 days (1st month) after being listed.':2,
