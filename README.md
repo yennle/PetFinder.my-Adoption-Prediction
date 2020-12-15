@@ -58,4 +58,4 @@ Going through some top-rated notebooks for competition on Kaggle, we noticed tha
 This Pet Prediction project deploys a supervised classification model to predict adoption speed based on 16 features: Type, Age, Breed, Gender, Color, Maturity Size, Fur Length, Vaccinated, Dewormed, Sterilized, Health, Quantity, Fee, State,Video Amount, Photo Amount
 
 After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 70%.
-The web app is designed using Streamlit, and can do online and batch processing, and is deployed using Heroku and Streamlit. The Heroku app is live at https://ds-example.herokuapp.com/.
+The web app is designed using Streamlit, and can do online and batch processing, and is deployed using Heroku and Streamlit. The Heroku app is live at https://pet-adoption-prediction.herokuapp.com/.
